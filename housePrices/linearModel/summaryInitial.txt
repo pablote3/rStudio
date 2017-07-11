@@ -1,0 +1,127 @@
+> summary(houseto)
+
+      Id           MSSubClass        MSZoning     LotFrontage        LotArea        Street  
+Min.   :   1.0   Min.   : 20.00   C (all):  25   Min.   : 21.00   Min.   :  1300   Grvl:  12
+1st Qu.: 730.5   1st Qu.: 20.00   FV     : 139   1st Qu.: 59.00   1st Qu.:  7478   Pave:2907
+Median :1460.0   Median : 50.00   RH     :  26   Median : 68.00   Median :  9453            
+Mean   :1460.0   Mean   : 57.14   RL     :2265   Mean   : 69.31   Mean   : 10168            
+3rd Qu.:2189.5   3rd Qu.: 70.00   RM     : 460   3rd Qu.: 80.00   3rd Qu.: 11570            
+Max.   :2919.0   Max.   :190.00   NA's   :   4   Max.   :313.00   Max.   :215245            
+                                                 NA's   :486                    
+                                                               
+ Alley      LotShape   LandContour  Utilities      LotConfig    LandSlope   Neighborhood 
+Grvl: 120   IR1: 968   Bnk: 117    AllPub:2916   Corner : 511   Gtl:2778   NAmes  : 443  
+Pave:  78   IR2:  76   HLS: 120    NoSeWa:   1   CulDSac: 176   Mod: 125   CollgCr: 267  
+NA's:2721   IR3:  16   Low:  60    NA's  :   2   FR2    :  85   Sev:  16   OldTown: 239  
+            Reg:1859   Lvl:2622                  FR3    :  14              Edwards: 194  
+                                                 Inside :2133              Somerst: 182  
+                                                                           NridgHt: 166  
+                                                                           (Other):1428  
+                                                                           
+  Condition1     Condition2     BldgType      HouseStyle    OverallQual      OverallCond   
+Norm   :2511   Norm   :2889   1Fam  :2425   1Story :1471   Min.   : 1.000   Min.   :1.000  
+Feedr  : 164   Feedr  :  13   2fmCon:  62   2Story : 872   1st Qu.: 5.000   1st Qu.:5.000  
+Artery :  92   Artery :   5   Duplex: 109   1.5Fin : 314   Median : 6.000   Median :5.000  
+RRAn   :  50   PosA   :   4   Twnhs :  96   SLvl   : 128   Mean   : 6.089   Mean   :5.565  
+PosN   :  39   PosN   :   4   TwnhsE: 227   SFoyer :  83   3rd Qu.: 7.000   3rd Qu.:6.000  
+RRAe   :  28   RRNn   :   2                 2.5Unf :  24   Max.   :10.000   Max.   :9.000  
+(Other):  35   (Other):   2                 (Other):  27                   
+                
+  YearBuilt     YearRemodAdd    RoofStyle       RoofMatl     Exterior1st    Exterior2nd  
+Min.   :1872   Min.   :1950   Flat   :  20   CompShg:2876   VinylSd:1025   VinylSd:1014  
+1st Qu.:1954   1st Qu.:1965   Gable  :2310   Tar&Grv:  23   MetalSd: 450   MetalSd: 447  
+Median :1973   Median :1993   Gambrel:  22   WdShake:   9   HdBoard: 442   HdBoard: 406  
+Mean   :1971   Mean   :1984   Hip    : 551   WdShngl:   7   Wd Sdng: 411   Wd Sdng: 391  
+3rd Qu.:2001   3rd Qu.:2004   Mansard:  11   ClyTile:   1   Plywood: 221   Plywood: 270  
+Max.   :2010   Max.   :2010   Shed   :   5   Membran:   1   (Other): 369   (Other): 390  
+                                             (Other):   2   NA's   :   1   NA's   :   1  
+                                             
+  MasVnrType     MasVnrArea     ExterQual ExterCond  Foundation   BsmtQual    BsmtCond   
+BrkCmn :  25   Min.   :   0.0   Ex: 107   Ex:  12   BrkTil: 311   Ex  : 258   Fa  : 104  
+BrkFace: 879   1st Qu.:   0.0   Fa:  35   Fa:  67   CBlock:1235   Fa  :  88   Gd  : 122  
+None   :1742   Median :   0.0   Gd: 979   Gd: 299   PConc :1308   Gd  :1209   Po  :   5  
+Stone  : 249   Mean   : 102.2   TA:1798   Po:   3   Slab  :  49   TA  :1283   TA  :2606  
+NA's   :  24   3rd Qu.: 164.0             TA:2538   Stone :  11   NA's:  81   NA's:  82  
+               Max.   :1600.0                       Wood  :   5                          
+               NA's   :23                    
+                                                           
+BsmtExposure BsmtFinType1   BsmtFinSF1     BsmtFinType2   BsmtFinSF2        BsmtUnfSF     
+Av  : 418    ALQ :429     Min.   :   0.0   ALQ :  52    Min.   :   0.00   Min.   :   0.0  
+Gd  : 276    BLQ :269     1st Qu.:   0.0   BLQ :  68    1st Qu.:   0.00   1st Qu.: 220.0  
+Mn  : 239    GLQ :849     Median : 368.5   GLQ :  34    Median :   0.00   Median : 467.0  
+No  :1904    LwQ :154     Mean   : 441.4   LwQ :  87    Mean   :  49.58   Mean   : 560.8  
+NA's:  82    Rec :288     3rd Qu.: 733.0   Rec : 105    3rd Qu.:   0.00   3rd Qu.: 805.5  
+             Unf :851     Max.   :5644.0   Unf :2493    Max.   :1526.00   Max.   :2336.0  
+             NA's: 79     NA's   :1        NA's:  80    NA's   :1         NA's   :1       
+             
+ TotalBsmtSF      Heating     HeatingQC CentralAir Electrical     X1stFlrSF      X2ndFlrSF   
+Min.   :   0.0   Floor:   1   Ex:1493   N: 196     FuseA: 188   Min.   : 334   Min.   :   0.0
+1st Qu.: 793.0   GasA :2874   Fa:  92   Y:2723     FuseF:  50   1st Qu.: 876   1st Qu.:   0.0
+Median : 989.5   GasW :  27   Gd: 474              FuseP:   8   Median :1082   Median :   0.0
+Mean   :1051.8   Grav :   9   Po:   3              Mix  :   1   Mean   :1160   Mean   : 336.5
+3rd Qu.:1302.0   OthW :   2   TA: 857              SBrkr:2671   3rd Qu.:1388   3rd Qu.: 704.0
+Max.   :6110.0   Wall :   6                        NA's :   1   Max.   :5095   Max.   :2065.0
+NA's   :1    
+                                                                                   
+                                                                                   
+                                                                                   
+ LowQualFinSF        GrLivArea     BsmtFullBath     BsmtHalfBath        FullBath    
+Min.   :   0.000   Min.   : 334   Min.   :0.0000   Min.   :0.00000   Min.   :0.000  
+1st Qu.:   0.000   1st Qu.:1126   1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:1.000  
+Median :   0.000   Median :1444   Median :0.0000   Median :0.00000   Median :2.000  
+Mean   :   4.694   Mean   :1501   Mean   :0.4299   Mean   :0.06136   Mean   :1.568  
+3rd Qu.:   0.000   3rd Qu.:1744   3rd Qu.:1.0000   3rd Qu.:0.00000   3rd Qu.:2.000  
+Max.   :1064.000   Max.   :5642   Max.   :3.0000   Max.   :2.00000   Max.   :4.000  
+                                  NA's   :2        NA's   :2                        
+                                  
+   HalfBath       BedroomAbvGr   KitchenAbvGr   KitchenQual  TotRmsAbvGrd      Functional
+Min.   :0.0000   Min.   :0.00   Min.   :0.000   Ex  : 205   Min.   : 2.000   Typ    :2717
+1st Qu.:0.0000   1st Qu.:2.00   1st Qu.:1.000   Fa  :  70   1st Qu.: 5.000   Min2   :  70
+Median :0.0000   Median :3.00   Median :1.000   Gd  :1151   Median : 6.000   Min1   :  65
+Mean   :0.3803   Mean   :2.86   Mean   :1.045   TA  :1492   Mean   : 6.452   Mod    :  35
+3rd Qu.:1.0000   3rd Qu.:3.00   3rd Qu.:1.000   NA's:   1   3rd Qu.: 7.000   Maj1   :  19
+Max.   :2.0000   Max.   :8.00   Max.   :3.000               Max.   :15.000   (Other):  11
+                                                                             NA's   :   2
+                                                                             
+  Fireplaces     FireplaceQu   GarageType    GarageYrBlt   GarageFinish   GarageCars   
+Min.   :0.0000   Ex  :  43   2Types :  23   Min.   :1895   Fin : 719    Min.   :0.000  
+1st Qu.:0.0000   Fa  :  74   Attchd :1723   1st Qu.:1960   RFn : 811    1st Qu.:1.000  
+Median :1.0000   Gd  : 744   Basment:  36   Median :1979   Unf :1230    Median :2.000  
+Mean   :0.5971   Po  :  46   BuiltIn: 186   Mean   :1978   NA's: 159    Mean   :1.767  
+3rd Qu.:1.0000   TA  : 592   CarPort:  15   3rd Qu.:2002                3rd Qu.:2.000  
+Max.   :4.0000   NA's:1420   Detchd : 779   Max.   :2207                Max.   :5.000  
+                             NA's   : 157   NA's   :159                 NA's   :1      
+                             
+  GarageArea     GarageQual  GarageCond  PavedDrive   WoodDeckSF       OpenPorchSF    
+Min.   :   0.0   Ex  :   3   Ex  :   3   N: 216     Min.   :   0.00   Min.   :  0.00  
+1st Qu.: 320.0   Fa  : 124   Fa  :  74   P:  62     1st Qu.:   0.00   1st Qu.:  0.00  
+Median : 480.0   Gd  :  24   Gd  :  15   Y:2641     Median :   0.00   Median : 26.00  
+Mean   : 472.9   Po  :   5   Po  :  14              Mean   :  93.71   Mean   : 47.49  
+3rd Qu.: 576.0   TA  :2604   TA  :2654              3rd Qu.: 168.00   3rd Qu.: 70.00  
+Max.   :1488.0   NA's: 159   NA's: 159              Max.   :1424.00   Max.   :742.00  
+NA's   :1                    
+                                                         
+EnclosedPorch      X3SsnPorch       ScreenPorch        PoolArea        PoolQC       Fence   
+Min.   :   0.0   Min.   :  0.000   Min.   :  0.00   Min.   :  0.000   Ex  :   4   GdPrv: 118
+1st Qu.:   0.0   1st Qu.:  0.000   1st Qu.:  0.00   1st Qu.:  0.000   Fa  :   2   GdWo : 112
+Median :   0.0   Median :  0.000   Median :  0.00   Median :  0.000   Gd  :   4   MnPrv: 329
+Mean   :  23.1   Mean   :  2.602   Mean   : 16.06   Mean   :  2.252   NA's:2909   MnWw :  12
+3rd Qu.:   0.0   3rd Qu.:  0.000   3rd Qu.:  0.00   3rd Qu.:  0.000               NA's :2348
+Max.   :1012.0   Max.   :508.000   Max.   :576.00   Max.   :800.000                         
+                                                                                            
+MiscFeature    MiscVal             MoSold           YrSold        SaleType    SaleCondition 
+Gar2:   5   Min.   :    0.00   Min.   : 1.000   Min.   :2006   WD     :2525   Abnorml: 190  
+Othr:   4   1st Qu.:    0.00   1st Qu.: 4.000   1st Qu.:2007   New    : 239   AdjLand:  12  
+Shed:  95   Median :    0.00   Median : 6.000   Median :2008   COD    :  87   Alloca :  24  
+TenC:   1   Mean   :   50.83   Mean   : 6.213   Mean   :2008   ConLD  :  26   Family :  46  
+NA's:2814   3rd Qu.:    0.00   3rd Qu.: 8.000   3rd Qu.:2009   CWD    :  12   Normal :2402  
+            Max.   :17000.00   Max.   :12.000   Max.   :2010   (Other):  29   Partial: 245  
+                                                               NA's   :   1                 
+
+  SalePrice     
+Min.   :     0  
+1st Qu.:     0  
+Median : 34900  
+Mean   : 90492  
+3rd Qu.:163000  
+Max.   :755000  
