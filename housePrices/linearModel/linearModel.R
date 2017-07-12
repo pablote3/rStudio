@@ -1,27 +1,23 @@
 #https://www.kaggle.com/c/house-prices-advanced-regression-techniques/discussion/25247
 
-house<-read.csv("../housePrices/train.csv")
-houset<-read.csv("../housePrices/test.csv")
+house<-read.csv("../housePrices/data/train.csv")
+houset<-read.csv("../housePrices/data/test.csv")
 
-houset$SalePrice <- 0            #initialize SalesPrice to 0
-houseto <- rbind(house,houset)   #combines data sets
+houset$SalePrice <- 0                         #initialize SalesPrice to 0
+houseto <- rbind(house,houset)                #combines data sets
 
-#summary(houseto)
-
-#replace missing numeric values with mean
-c<-lapply(houseto,mean,na.rm=T) 
+#replace na values in numeric columns with mean
+c<-lapply(houseto,mean,na.rm=TRUE)            #create list of mean values for each numeric column
 for (j in 1:80) {
-  if (!is.na(c[j])) {
-    i=1
-    while (i<=2919)  {
-      k=0
+  if (!is.na(c[j])) {                         #check for numeric columns
+    k=0
+    for (i in 1:2919)  {
       if (is.na(houseto[i,j])) {
         houseto[i,j]<-c[j]
-        k=k+1
+        k = k + 1                             #track number of updates per column
       }
-      i=i+1
     }
-    cat(k, sep="\n")
+    cat(colnames(houseto[j]), k, "\n")
   }
 }
 
@@ -31,27 +27,32 @@ getmode <- function(v) {
   matchVector <- match(v, uniqv)              #determine position from uniqv
   tabulateVector <- tabulate(matchVector)     #count occurances of each uniqv
   maxIndex <- which.max(tabulateVector)       #determine uniqv index with highest count
-  uniqv[maxIndex]returns
-  #uniqv[which.max(tabulate(match(v, uniqv)))]
+  uniqv[maxIndex]
 }
 
 c<-lapply(houseto,getmode)                    #list of indexes with highest count
 d<-lapply(as.data.frame(is.na(houseto)),sum)  #sum na per column
 
-for (i in 1:2919) {
-  for (j in 1:80) {
+for (j in 1:80) {
+#for (i in 1:2919) {
+  for (i in 1:1) {
+#  j<-73
     if (is.na(houseto[i,j])) {
+      cat(colnames(houseto[j]), "i = ", i, " j = ", j, "\n")
       houseto[,j]<-as.character(houseto[,j])
-    }  
-    if(d[j]>100) {
-      houseto[i,j]<-'others'
+      if(d[j]>100) {                            #more than 100 na per column
+        houseto[i,j]<-'others'                  #switch na to others
+        cat(" Others", "\n")
+      }
+      else {
+        cat(colnames(houseto[j]), i, as.character(c[j]), " ", "\n")
+        houseto[i,j]<-as.character(c[j])
+      }
+      houseto[,j]=as.factor(houseto[,j])
+    #  cat(levels(houseto[,j]), "\n")
     }
-    else {
-      houseto[i,j]<-as.character(c[j])
-    }
-    houseto[,j]=as.factor(houseto[,j])
   }
-}
+}  
 
 d<-lapply(as.data.frame(is.na(houseto)),sum) #checking#
 
