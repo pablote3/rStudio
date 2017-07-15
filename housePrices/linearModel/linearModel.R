@@ -5,11 +5,12 @@ houset<-read.csv("../housePrices/data/test.csv")
 
 houset$SalePrice <- 0                         #initialize SalesPrice to 0
 houseto <- rbind(house,houset)                #combines data sets
+summary(houseto)
 
 #replace na values in numeric columns with mean
-c<-lapply(houseto,mean,na.rm=TRUE)            #create list of mean values for each numeric column
+c<-lapply(houseto,mean,na.rm=TRUE)            #build list of mean values for each numeric column
 for (j in 1:80) {
-  if (!is.na(c[j])) {                         #check for numeric columns
+  if (!is.na(c[j])) {                         #numeric columns return na on is.na
     k=0
     for (i in 1:2919)  {
       if (is.na(houseto[i,j])) {
@@ -17,7 +18,9 @@ for (j in 1:80) {
         k = k + 1                             #track number of updates per column
       }
     }
-    cat(colnames(houseto[j]), k, "\n")
+    if (k>0) {
+      cat(colnames(houseto[j]), k, "\n")
+    }
   }
 }
 
@@ -27,29 +30,42 @@ getmode <- function(v) {
   matchVector <- match(v, uniqv)              #determine position from uniqv
   tabulateVector <- tabulate(matchVector)     #count occurances of each uniqv
   maxIndex <- which.max(tabulateVector)       #determine uniqv index with highest count
+  
+#  fact<-as.factor(uniqv)
+  
+  cat(maxIndex, "  ", uniqv[maxIndex], fact[maxIndex], "\n")
   uniqv[maxIndex]
 }
 
-c<-lapply(houseto,getmode)                    #list of indexes with highest count
+df<-unique(houseto[3]) ### notes for resolving category name
+df
+
+
+c<-lapply(houseto,getmode)                    #build list of indexes with highest count
 d<-lapply(as.data.frame(is.na(houseto)),sum)  #sum na per column
 
 for (j in 1:80) {
-#for (i in 1:2919) {
-  for (i in 1:1) {
-#  j<-73
-    if (is.na(houseto[i,j])) {
-      cat(colnames(houseto[j]), "i = ", i, " j = ", j, "\n")
-      houseto[,j]<-as.character(houseto[,j])
-      if(d[j]>100) {                            #more than 100 na per column
-        houseto[i,j]<-'others'                  #switch na to others
-        cat(" Others", "\n")
+  if (d[j] > 0) {                             #na count more than zero
+    k=0
+    for (i in 1:2919) {
+      if (is.na(houseto[i,j])) {
+        houseto[,j]<-as.character(houseto[,j])#convert column to characters???needed???
+        if(d[j]>100) {                        #more than 100 na per column
+          houseto[i,j]<-'others'              #switch na to others
+          k = k + 1
+        }
+        else {
+          houseto[i,j]<-as.character(c[j])
+          k = k + 1
+        }
+        houseto[,j]=as.factor(houseto[,j])
       }
-      else {
-        cat(colnames(houseto[j]), i, as.character(c[j]), " ", "\n")
-        houseto[i,j]<-as.character(c[j])
-      }
-      houseto[,j]=as.factor(houseto[,j])
-    #  cat(levels(houseto[,j]), "\n")
+    }
+    if(d[j]>100) {
+      cat(colnames(houseto[j]), k, " others", "\n")
+    }
+    else {
+      cat(colnames(houseto[j]), k, " ", as.character(c[j]), "\n")
     }
   }
 }  
